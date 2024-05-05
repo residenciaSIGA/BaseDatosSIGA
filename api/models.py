@@ -20,11 +20,12 @@ class Puesto(models.Model):
     nombre = models.CharField(max_length = 100)
 
 class Usuario(models.Model):
-    idUsu = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length = 100)
-    pssword = models.CharField(max_length = 100)
-    correo_e = models.CharField(max_length = 100)
-    puesto = models.ForeignKey('Puesto', on_delete=models.CASCADE)
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=100)
+    pssword = models.CharField(max_length=100)
+    correo_electronico = models.CharField(max_length=100)  # Renombrado
+    departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
+    puesto = models.ForeignKey(Puesto, on_delete=models.CASCADE)
 
 class Documento(models.Model):
     idDoc = models.AutoField(primary_key=True)
